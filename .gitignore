@@ -1,0 +1,19 @@
+# .NET
+bin/
+obj/
+*.user
+*.vs/
+
+# Node/Next.js
+node_modules/
+.next/
+dist/
+
+# Docker
+docker-compose.override.yml
+
+# IDE/editor
+.vscode/
+
+# Secrets / env
+.env
