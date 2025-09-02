@@ -3,7 +3,7 @@ services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
-      SA_PASSWORD: "Your_strong!Passw0rd"
+      SA_PASSWORD: "12345"
       ACCEPT_EULA: "Y"
     ports:
       - "1433:1433"
@@ -17,7 +17,7 @@ services:
     depends_on:
       - sqlserver
     environment:
-      ConnectionStrings__Default: "Server=sqlserver;Database=projectplannerDb;User=TestMan;Password=12345;"
+      ConnectionStrings__Default: "Server=sqlserver;Database=projectplannerDb;User=sa;Password=12345;"
     ports:
       - "5000:5000"
 
