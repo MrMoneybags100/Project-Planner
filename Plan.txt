@@ -1,7 +1,7 @@
-Write out some of the key docker commands in my book
+Write out some of the key docker commands/principles in my book
 Create a web front to house the logic stuff, add baseline code for page changes
-backend methods for interacting with the database
-create backend API to call methods and return results
-create frontend API handling
-add frontend logic for getting/editing data using API
+Backend methods for interacting with the database
+Create backend API to call methods and return results
+Create frontend API handling
+Add frontend logic for getting/editing data using API
 Create xUnit tests for backend methods
