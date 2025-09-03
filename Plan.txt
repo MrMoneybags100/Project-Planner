@@ -1,7 +1,9 @@
-Write out some of the key docker commands/principles in my book
-Create a web front to house the logic stuff, add baseline code for page changes
-Backend methods for interacting with the database
-Create backend API to call methods and return results
-Create frontend API handling
-Add frontend logic for getting/editing data using API
-Create xUnit tests for backend methods
+TO-DO:
+Have a wee thought about structure of tasks/groups/users for future use, feels like something missing.
+Create enough core API methods to be able to use entire system.
+Flesh out the baseline web pages, no task logic just yet.
+Create the front end API calling test, make sure we are getting data.
+Start building the task tree/list.
+Get everything working in a docker instance. v
+
+Please for the love of god change the testing server to the docker SQL, not local MRMONEYBOX (in appsettings.json)
