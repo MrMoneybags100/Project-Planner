@@ -13,7 +13,7 @@ namespace projectplanner.Data
         // DbSet<T> represents a table in your SQL database
         public DbSet<User> Users { get; set; }
         public DbSet<TaskItem> Tasks { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<UserGroupLink> UserGroupLinks { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<UserProjectLink> UserProjectLinks { get; set; }
     }
 }

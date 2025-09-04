@@ -16,11 +16,22 @@ namespace projectplanner.Controllers
             _context = context;
         }
 
-        //GET: All tasks
+
+        #region GET
+
+
+        //GET: All tasks, Probably get rid of this later
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaskItem>>> GetTasks()
         {
-            return await _context.Tasks.ToListAsync();
+            var tasks = await _context.Tasks.ToListAsync();
+
+            if (!tasks.Any())
+            {
+                return NotFound($"No tasks found.");
+            }
+
+            return Ok(tasks);
         }
 
         //GET: Task of a particular ID
@@ -37,18 +48,30 @@ namespace projectplanner.Controllers
             return Ok(tasks);
         }
 
-        //GET: All tasks belonging to a group
-        [HttpGet("groupID")]
-        public async Task<ActionResult<TaskItem>> GetGroupTasks(int groupID)
+        //GET: All tasks belonging to a project
+        [HttpGet("projectID")]
+        public async Task<ActionResult<TaskItem>> GetGroupTasks(int projectID)
         {
-            var tasks = await _context.Tasks.Where(t => t.GroupID == groupID).ToListAsync();
+            var tasks = await _context.Tasks.Where(t => t.ProjectID == projectID).ToListAsync();
 
             if (!tasks.Any())
             {
-                return NotFound($"No tasks found for GroupID: {groupID}");
+                return NotFound($"No tasks found for GroupID: {projectID}");
             }
 
             return Ok(tasks);
         }
+
+
+        #endregion GET
+
+
+        #region POST
+
+
+        
+
+
+        #endregion POST
     }
 }
