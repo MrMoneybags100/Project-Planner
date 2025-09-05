@@ -41,9 +41,14 @@ namespace projectplanner.Controllers
         #region POST
 
 
-        [HttpPost]
-        public async Task<ActionResult<Project>> CreateUser(User newUser)
+        [HttpPost("CreateUser")]
+        public async Task<ActionResult<Project>> CreateUser(DtoUserCreationInfo userInfo)
         {
+            User newUser = new User
+            {
+                UserName = userInfo.userName,
+                UserEmail = userInfo.UserEmail
+            };
             _context.Users.Add(newUser);
             await _context.SaveChangesAsync();
 

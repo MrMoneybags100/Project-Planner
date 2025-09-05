@@ -36,7 +36,7 @@ namespace projectplanner.Controllers
 
 
         //GET: All Projects a user is a part of
-        [HttpGet("userID")]
+        [HttpGet("GetUserProjects")]
         public async Task<ActionResult<TaskItem>> GetUserProjects(int userID)
         {
             var projects = await _context.Projects.Where(proj => _context.UserProjectLinks.Where(link => link.UserID == userID).Select(link => link.ProjectID).Contains(proj.ProjectID)).ToListAsync();
@@ -57,26 +57,27 @@ namespace projectplanner.Controllers
 
 
         // POST: Create a Project, Also creates user project link
-        [HttpPost]
-        public async Task<ActionResult<Project>> CreateProject(DtoProjectCreationInfo projectInfo, int userID)
+        [HttpPost("CreateProject")]
+        public async Task<ActionResult<Project>> CreateProject(DtoProjectCreationInfo projectInfo)
         {
 
             Project newProject = new Project
             {
-                CreatedID = userID,
-                LastEditedID = userID,
+                CreatedID = projectInfo.UserID,
+                LastEditedID = projectInfo.UserID,
                 ProjectTitle = projectInfo.ProjectTitle,
                 ProjectDescription = projectInfo.ProjectDescription,
                 IsCompleted = false,
                 IsDefaultExpanded = projectInfo.IsDefaultExpanded,
-                CreatedDate = DateTime.Now
+                CreatedDate = DateTime.Now,
+                LastEditedDate = DateTime.Now
             };
             _context.Projects.Add(newProject);
             await _context.SaveChangesAsync();
 
             UserProjectLink newLink = new UserProjectLink
             {
-                UserID = userID,
+                UserID = projectInfo.UserID,
                 ProjectID = newProject.ProjectID,
                 IsOwner = true,
                 IsOrganiser = true

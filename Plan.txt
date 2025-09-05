@@ -7,3 +7,8 @@ Start building the task tree/list.
 Get everything working in a docker instance. v
 
 Please for the love of god change the testing server to the docker SQL, not local MRMONEYBOX (in appsettings.json)
+
+
+
+
+NEED TO MAKE IT SO THAT PARENT ID IS 0 IF PARENT IS A PROJECT

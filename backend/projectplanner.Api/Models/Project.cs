@@ -15,5 +15,6 @@ namespace projectplanner.Models
         public bool IsDefaultExpanded { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? CompletedDate { get; set; }
+        public DateTime LastEditedDate { get; set; }
     }
 }
